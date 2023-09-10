@@ -1,0 +1,25 @@
+server:
+  port: 80
+  servlet:
+    context-path: /api
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    #url: jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
+    username: system
+    password: admin12345
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    database-platform: org.hibernate.dialect.OracleDialect
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+        show_sql: true
+        format_sql: true
+        ddl-auto: create
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:12345678}
